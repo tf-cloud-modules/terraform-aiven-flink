@@ -121,3 +121,15 @@ variable "restart_strategy_max_failures" {
   type        = string
   default     = "60"
 }
+
+variable "privatelink_prometheus" {
+  description = "Enable prometheus."
+  type        = bool
+  default     = false
+}
+
+variable "privatelink_flink" {
+  description = "Enable Flink."
+  type        = bool
+  default     = false
+}

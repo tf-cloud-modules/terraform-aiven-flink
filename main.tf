@@ -21,6 +21,11 @@ resource "aiven_flink" "this" {
     restart_strategy_delay_sec                 = var.restart_strategy_delay_sec
     restart_strategy_failure_rate_interval_min = var.restart_strategy_failure_rate_interval_min
     restart_strategy_max_failures              = var.restart_strategy_max_failures
+
+    privatelink_access {
+      prometheus = var.privatelink_prometheus
+      flink      = var.privatelink_flink
+    }
   }
 
   dynamic "tag" {

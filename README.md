@@ -50,6 +50,8 @@ No modules.
 | <a name="input_number_of_task_slots"></a> [number\_of\_task\_slots](#input\_number\_of\_task\_slots) | Flink taskmanager.numberOfTaskSlots. | `string` | `"5"` | no |
 | <a name="input_parallelism_default"></a> [parallelism\_default](#input\_parallelism\_default) | Flink parallelism.default. | `string` | `"1"` | no |
 | <a name="input_plan"></a> [plan](#input\_plan) | Defines what kind of computing resources are allocated for the service. | `string` | `"startup-4"` | no |
+| <a name="input_privatelink_flink"></a> [privatelink\_flink](#input\_privatelink\_flink) | Enable Flink. | `bool` | `false` | no |
+| <a name="input_privatelink_prometheus"></a> [privatelink\_prometheus](#input\_privatelink\_prometheus) | Enable prometheus. | `bool` | `false` | no |
 | <a name="input_project"></a> [project](#input\_project) | Aiven Cloud Project Name | `string` | n/a | yes |
 | <a name="input_project_vpc_id"></a> [project\_vpc\_id](#input\_project\_vpc\_id) | Specifies the VPC the service should run in. If the value is not set the service is not run inside a VPC. | `string` | `null` | no |
 | <a name="input_restart_strategy"></a> [restart\_strategy](#input\_restart\_strategy) | Flink restart-strategy. | `string` | `"failure-rate"` | no |
