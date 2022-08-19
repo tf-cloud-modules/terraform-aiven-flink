@@ -61,3 +61,63 @@ variable "termination_protection" {
   type        = bool
   default     = false
 }
+
+variable "execution_checkpointing_interval_ms" {
+  description = "Flink execution.checkpointing.interval in milliseconds."
+  type        = string
+  default     = "60000"
+}
+
+variable "execution_checkpointing_timeout_ms" {
+  description = "Flink execution.checkpointing.timeout in milliseconds."
+  type        = string
+  default     = "600000"
+}
+
+variable "flink_version" {
+  description = "Flink major version."
+  type        = string
+  default     = "1.13"
+}
+
+variable "ip_filter" {
+  description = "IP filter"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
+variable "number_of_task_slots" {
+  description = "Flink taskmanager.numberOfTaskSlots."
+  type        = string
+  default     = "5"
+}
+
+variable "parallelism_default" {
+  description = "Flink parallelism.default."
+  type        = string
+  default     = "1"
+}
+
+variable "restart_strategy" {
+  description = "Flink restart-strategy."
+  type        = string
+  default     = "failure-rate"
+}
+
+variable "restart_strategy_delay_sec" {
+  description = " Flink restart-strategy.failure-rate.delay in seconds."
+  type        = string
+  default     = "10"
+}
+
+variable "restart_strategy_failure_rate_interval_min" {
+  description = "Flink restart-strategy.failure-rate.failure-rate-interval in minutes."
+  type        = string
+  default     = "60"
+}
+
+variable "restart_strategy_max_failures" {
+  description = "Flink restart-strategy.failure-rate.max-failures-per-interval"
+  type        = string
+  default     = "60"
+}
