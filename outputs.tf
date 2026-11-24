@@ -3,6 +3,11 @@ output "cloud_name" {
   value       = try(aiven_flink.this[0].cloud_name, "")
 }
 
+output "cmk_id" {
+  description = "UUID of the Customer Managed Key (CMK) used to apply bring your own key (BYOK) encryption to this service's data at rest."
+  value       = try(aiven_flink.this[0].cmk_id, "")
+}
+
 output "components" {
   description = "Service component information objects."
   value       = try(aiven_flink.this[0].components, "")
@@ -31,6 +36,11 @@ output "id" {
 output "maintenance_window_dow" {
   description = "Day of week when maintenance operations should be performed."
   value       = try(aiven_flink.this[0].maintenance_window_dow, "")
+}
+
+output "maintenance_window_enabled" {
+  description = "Indicates whether the maintenance window is currently enabled for this service."
+  value       = try(aiven_flink.this[0].maintenance_window_enabled, "")
 }
 
 output "maintenance_window_time" {

@@ -10,6 +10,12 @@ variable "cloud_name" {
   default     = "aws-us-east-1"
 }
 
+variable "cmk_id" {
+  description = "UUID of the Customer Managed Key (CMK) used to apply bring your own key (BYOK) encryption to this service's data at rest."
+  type        = string
+  default     = null
+}
+
 variable "maintenance_window_dow" {
   description = "Day of week when maintenance operations should be performed. One monday, tuesday, wednesday, etc."
   type        = string
@@ -62,22 +68,22 @@ variable "termination_protection" {
   default     = false
 }
 
-variable "execution_checkpointing_interval_ms" {
-  description = "Flink execution.checkpointing.interval in milliseconds."
-  type        = string
-  default     = "60000"
+variable "additional_backup_regions" {
+  description = "Additional Cloud Regions for Backup Replication."
+  type        = list(string)
+  default     = null
 }
 
-variable "execution_checkpointing_timeout_ms" {
-  description = "Flink execution.checkpointing.timeout in milliseconds."
-  type        = string
-  default     = "600000"
+variable "custom_code" {
+  description = "Enable to upload Custom JARs for Flink applications."
+  type        = bool
+  default     = null
 }
 
 variable "flink_version" {
-  description = "Flink major version."
+  description = "Flink major version. Enum: `1.16`, `1.19`, `1.20`, and newer."
   type        = string
-  default     = "1.13"
+  default     = "1.20"
 }
 
 variable "ip_filter" {
@@ -88,38 +94,26 @@ variable "ip_filter" {
 
 variable "number_of_task_slots" {
   description = "Flink taskmanager.numberOfTaskSlots."
-  type        = string
-  default     = "5"
+  type        = number
+  default     = 5
 }
 
-variable "parallelism_default" {
-  description = "Flink parallelism.default."
-  type        = string
-  default     = "1"
+variable "pekko_ask_timeout_s" {
+  description = "Timeout in seconds used for all futures and blocking Pekko requests."
+  type        = number
+  default     = null
 }
 
-variable "restart_strategy" {
-  description = "Flink restart-strategy."
-  type        = string
-  default     = "failure-rate"
+variable "pekko_framesize_b" {
+  description = "Maximum size in bytes for messages exchanged between the JobManager and the TaskManagers."
+  type        = number
+  default     = null
 }
 
-variable "restart_strategy_delay_sec" {
-  description = " Flink restart-strategy.failure-rate.delay in seconds."
-  type        = string
-  default     = "10"
-}
-
-variable "restart_strategy_failure_rate_interval_min" {
-  description = "Flink restart-strategy.failure-rate.failure-rate-interval in minutes."
-  type        = string
-  default     = "60"
-}
-
-variable "restart_strategy_max_failures" {
-  description = "Flink restart-strategy.failure-rate.max-failures-per-interval"
-  type        = string
-  default     = "60"
+variable "service_log" {
+  description = "Store logs for the service so that they are available in the HTTP API and console."
+  type        = bool
+  default     = null
 }
 
 variable "privatelink_prometheus" {
@@ -132,4 +126,10 @@ variable "privatelink_flink" {
   description = "Enable Flink."
   type        = bool
   default     = false
+}
+
+variable "public_access_flink" {
+  description = "Allow clients to connect to flink from the public internet for service nodes that are in a project VPC or another type of private network."
+  type        = bool
+  default     = true
 }
