@@ -4,6 +4,13 @@
 
 Terraform module which creates Aiven Flink resources
 
+> [!WARNING]
+> **DEPRECATED:** Aiven no longer permits creation of new Aiven for Apache Flink
+> services. This module is frozen and will be archived after its final release.
+> Do not use it for new infrastructure. Existing services may continue to be
+> managed only while they remain supported by Aiven and the `aiven/aiven`
+> provider; plan any migration with Aiven support before making changes.
+
 ## Usage
 
 ```hcl

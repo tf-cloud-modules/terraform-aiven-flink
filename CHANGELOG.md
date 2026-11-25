@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Deprecated
+- This module is deprecated because Aiven no longer permits creation of new Aiven for Apache Flink services. The module is frozen and will be archived after its final release; this release does not perform a migration of existing services.
+
 ### Added
 - Add aiven/aiven provider v4 `flink_user_config` fields: `additional_backup_regions`, `custom_code`, `pekko_ask_timeout_s`, `pekko_framesize_b`, `service_log`.
 - Add `public_access` block support via the `public_access_flink` variable (defaults to `true` to preserve the previous behavior).
