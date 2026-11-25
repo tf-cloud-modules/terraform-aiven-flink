@@ -28,7 +28,7 @@ No providers.
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_flink"></a> [flink](#module\_flink) | ../.. | n/a |
 
 ## Resources
